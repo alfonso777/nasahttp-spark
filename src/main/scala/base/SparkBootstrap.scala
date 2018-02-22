@@ -3,7 +3,7 @@ package base
 import org.apache.spark.sql.SparkSession
 
 
-trait SparkBootstrap {
+object SparkBootstrap {
 
   val spark: SparkSession = SparkSession.builder()
     .appName("Spark NASA HTTP")
