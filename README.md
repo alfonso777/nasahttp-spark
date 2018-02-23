@@ -8,12 +8,12 @@ O objetivo é processar alguns logs de requisições da _NASA Kennedy Space Cent
 4. Quantidade de erros 404 por dia.
 5. O total de bytes retornados.
 
-A fonte oficial dodateset está em: http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
+A fonte oficial do dateset está em: http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
 
 ### Solução
 A solução foi implementada usando Scala e API do Spark (versão 2.2.0) nessa linguagem.
 
-SBT foi usado como ferramenta de criação.
+SBT foi usado como ferramenta de criação. O projeto pode ser fácilmente importado no IDE Intellij.
 
 #### Como executar
 * Em um ambiente Linux ou compatível (docker, vagrant, vm, etc), deve ter instalado Apache Spark e ter adicionado o $SPARK_HOME/bin no $PATH.
@@ -27,4 +27,5 @@ Isso que gerará o pacote na pasta _target_.
 
 * As respostas das questões 1,2 e 5 serão armazenadas na pasta `outputPath/question125` e as repostas restantes serão armazenadas nas pastas `outputPath/question3` e `outputPath/question4`.
 
-
+### Trabalhos futuros
+* Nesta versão não usou-se dataframes. Em um futuro adcionarei a versão com dataframes.
