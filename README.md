@@ -18,14 +18,17 @@ SBT foi usado como ferramenta de criação. O projeto pode ser fácilmente impor
 #### Como executar
 * Em um ambiente Linux ou compatível (docker, vagrant, vm, etc), deve ter instalado Apache Spark e ter adicionado o $SPARK_HOME/bin no $PATH.
 
-* Para gerar o pacote usar:
+* Para executar a ultima versão rodar script para submeter o job:
+```sh submit-release.sh inputhPath  outputPath```
+ Onde _inputhPath_ é a rota da pasta onde estão os datasets e _outputPath_  é a rota da pasta onde serão armazenados os resultados do processamento.
+
+* As respostas das questões 1,2 e 5 serão armazenadas na pasta `outputPath/question125` e as repostas restantes serão armazenadas nas pastas `outputPath/question3` e `outputPath/question4`.
+
+* Por outro lado, para gerar o pacote de uma nova versão usar:
  ```sbt package```
 Isso que gerará o pacote na pasta _target_.
 * Rodar o script para submeter o job:
  ```sh submit.sh inputhPath  outputPath```
- Onde _inputhPath_ é a rota da pasta onde estão os datasets e _outputPath_  é a rota da pasta onde serão armazenados os resultados do processamento.
-
-* As respostas das questões 1,2 e 5 serão armazenadas na pasta `outputPath/question125` e as repostas restantes serão armazenadas nas pastas `outputPath/question3` e `outputPath/question4`.
 
 ### Trabalhos futuros
 * Nesta versão não usou-se dataframes. Em um futuro adcionarei a versão com dataframes.
