@@ -43,7 +43,7 @@ gradle-app.setting
 *.class
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
