@@ -27,4 +27,5 @@ Isso que gerará o pacote na pasta _target_.
 
 * As respostas das questões 1,2 e 5 serão armazenadas na pasta `outputPath/question125` e as repostas restantes serão armazenadas nas pastas `outputPath/question3` e `outputPath/question4`.
 
-
+### Trabalhos futuros
+* Nesta versão não usou-se dataframes. Em um futuro adcionarei a versão com dataframes.
