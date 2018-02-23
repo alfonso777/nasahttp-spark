@@ -1,5 +1,7 @@
-import base.SparkBootstrap._
-import scala.util.{Failure, Success, Try}
+package org.nasahttp.demo
+
+import org.nasahttp.demo.base.SparkBootstrap._
+import scala.util.{Success, Try}
 
 object Application {
 
@@ -13,9 +15,9 @@ object Application {
   def processLog(inputPath: String, outputPath: String) = {
     val analyzerLog = new NasaLogAnalyzer(inputPath)
 
-    val numberOfDistinctHosts = s"Number of distinct hosts: $analyzerLog.numberOfUniqueHosts \n"
-    val numberOf404Errors = s"Number of 404 Errors: $analyzerLog.numberOf404Errors \n"
-    val totalOfBytes = s"Total of bytes: $analyzerLog.totalBytes"
+    val numberOfDistinctHosts = s"Number of distinct hosts: " + analyzerLog.numberOfUniqueHosts
+    val numberOf404Errors = s"Number of 404 Errors: " + analyzerLog.numberOf404Errors
+    val totalOfBytes = s"Total of bytes: " + analyzerLog.totalBytes
 
     val topURLsWithMost404Errors = analyzerLog.topURLWithMost404Errors(13)
     val daily404Errors = analyzerLog.numberOf404ErrorsByDay
@@ -24,5 +26,7 @@ object Application {
     sc.parallelize(simpleContentOutput).saveAsTextFile(s"${outputPath}/question125")
     topURLsWithMost404Errors.saveAsTextFile(s"${outputPath}/question3")
     daily404Errors.saveAsTextFile(s"${outputPath}/question4")
+
+    spark.close()
   }
 }

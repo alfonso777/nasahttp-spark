@@ -1,3 +1,5 @@
+package org.nasahttp.demo
+
 
 case class NasaRequestLogItem(host: String, datetime: String, resource: String, error: String, bytes: String)
 

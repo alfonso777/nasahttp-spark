@@ -1,5 +1,8 @@
-import base.SparkBootstrap._
+package org.nasahttp.demo
+
+import org.nasahttp.demo.base.SparkBootstrap._
 import org.apache.spark.rdd.RDD
+import scala.util.Try
 
 case class NasaLogAnalyzer(filesInputPath: String) {
   lazy val hostsRDD = sc.wholeTextFiles(filesInputPath).cache
@@ -17,5 +20,5 @@ case class NasaLogAnalyzer(filesInputPath: String) {
 
   def numberOf404ErrorsByDay: RDD[(String,Int)] = filterBy404Errors.map(_.datetime.split(":")(0) -> 1).reduceByKey(_+_).sortBy(_._2)
 
-  def totalBytes = hostsRDD.map(_.bytes.toLong).sum()
+  def totalBytes = hostsRDD.map(line => Try(line.bytes.toLong).getOrElse(0L)).sum()
 }

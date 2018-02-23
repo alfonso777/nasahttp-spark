@@ -1,7 +1,6 @@
-package base
+package org.nasahttp.demo.base
 
 import org.apache.spark.sql.SparkSession
-
 
 object SparkBootstrap {
 
